@@ -93,7 +93,7 @@
 
 \textbf{Създаване (Create):}
 \begin{itemize}
-    \item \textbf{RBAC}: Вградена система за управление на достъпа чрез роли и потребители \cite{rbac_mongodb}.
+    \item \textbf{RBAC}: Вградена система за управление на достъпа чрез роли и потребители \cite{rbac_education}.
     \item Добавяне на нов потребител с масив от интереси
     \item Създаване на курс с вложени модули и лекции
     \item Регистрация на студент в курс с начални параметри
@@ -101,23 +101,60 @@
 
 \textbf{Четене (Read):}
 \begin{itemize}
-    \item Филтриране по роля и статус на активност: \texttt{db.users.find(\{role: "student", is\_active: true\})}
-    \item Търсене по регулярен израз в заглавия на курсове: \texttt{db.courses.find(\{title: \{\$regex: "Data", \$options: "i"\}\})}
-    \item Филтриране по диапазон на цени: \texttt{db.courses.find(\{price: \{\$gte: 200, \$lte: 400\}\})}
-    \item Комбинирани условия с OR: \texttt{db.progress.find(\{\\$or: [\{status: "completed"\}, \{status: "in\_progress"\}]\})}
+\item Филтриране по роля и статус на активност:
+\begin{lstlisting}
+db.users.find({role: "student", is_active: true})
+\end{lstlisting}
+\item Търсене по регулярен израз в заглавия на курсове: 
+\begin{lstlisting}
+db.courses.find({title: {$regex: "Data", $options: "i"}})
+\end{lstlisting}
+\item Филтриране по диапазон на цени: 
+\begin{lstlisting}
+db.courses.find({price: {$gte: 200, $lte: 400}})
+\end{lstlisting}
+\item Комбинирани условия с OR:
+\begin{lstlisting}
+db.progress.find({$or: [
+  {status: "completed"}, 
+  {status: "in_progress"}
+]})
+\end{lstlisting}
 \end{itemize}
 
 \textbf{Актуализиране (Update):}
 \begin{itemize}
-    \item Добавяне на нова оценка в масива на резултатите: \texttt{db.progress.updateOne(\{\_id: ObjectId("...")\}, \{\$push: \{test\_results: \{module: 2, score: 92, attempts: 1, date\_taken: new Date()\}\}\})}
-    \item Увеличаване на текущата лекция: \texttt{db.progress.updateOne(\{\_id: ObjectId("...")\}, \{\$inc: \{current\_lecture: 1\}\})}
-    \item Актуализиране на множество документи: \texttt{db.users.updateMany(\{role: "student"\}, \{\$set: \{is\_active: true\}\})}
+\item Добавяне на нова оценка в масива на резултатите: 
+\begin{lstlisting}
+db.progress.updateOne({_id: ObjectId("...")}, {$push: 
+  {test_results: 
+    {module: 2, score: 92, attempts: 1, date_taken: new Date()}
+  }
+})
+\end{lstlisting}
+\item Увеличаване на текущата лекция: 
+\begin{lstlisting}
+db.progress.updateOne({_id: ObjectId("...")}, {$inc: 
+  {current_lecture: 1}
+})
+\end{lstlisting}
+\item Актуализиране на множество документи: 
+\begin{lstlisting}
+db.users.updateMany({role: "student"}, {$set: {is_active: true}})
+\end{lstlisting}
 \end{itemize}
 
 \textbf{Изтриване (Delete):}
 \begin{itemize}
-    \item Премахване на неактивни профили: \texttt{db.users.deleteMany(\{is\_active: false, last\_login: \{\$lt: new Date("2024-01-01")\}\})}
-    \item Изтриване на конкретен запис по ID: \texttt{db.progress.deleteOne(\{\_id: ObjectId("...")\}\})}
+\item Премахване на неактивни профили: 
+\begin{lstlisting}
+db.users.deleteMany({is_active: false, 
+                    last_login: {$lt: new Date("2024-01-01")}})
+\end{lstlisting}
+\item Изтриване на конкретен запис по ID: 
+\begin{lstlisting}
+db.progress.deleteOne({_id: ObjectId("...")})
+\end{lstlisting}
 \end{itemize}
 
 \subsubsection{Агрегиращи операции}

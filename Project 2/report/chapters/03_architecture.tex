@@ -91,7 +91,7 @@
     \item Филтриране по статус и тип гориво: \texttt{db.vehicles.find(\{status: "active", fuel\_type: "diesel"\})}
     \item Търсене по регулярен израз в регистрационни номера: \texttt{db.vehicles.find(\{license\_plate: \{\$regex: "CA", \$options: "i"\}\})}
     \item Филтриране по диапазон на капацитет: \texttt{db.vehicles.find(\{capacity: \{\$gte: 20000, \$lte: 30000\}\})}
-    \item Комбинирани условия с OR: \texttt{db.maintenance.find(\{\\$or: [\{status: "completed"\}, \{status: "in\_progress"\}]\})}
+    \item Комбинирани условия с OR: \texttt{db.maintenance.find(\{\$or: [\{status: "completed"\}, \{status: "in\_progress"\}]\})}
 \end{itemize}
 
 \textbf{Актуализиране (Update):}

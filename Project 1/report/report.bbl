@@ -1,68 +1,63 @@
 \begin{thebibliography}{10}
 
-\bibitem{banker2011mongodb}
-Kyle Banker, Peter Bakkum, Shaun Verch, Doug Garrett, and David Hows.
-\newblock {\em MongoDB in Action}.
-\newblock Manning Publications, 2011.
+\bibitem{sadalage2012nosql}
+P.~J. Sadalage and M.~Fowler, {\em NoSQL Distilled: A Brief Guide to the
+  Emerging World of Polyglot Persistence}.
+\newblock Addison-Wesley Professional, 2012.
 
-\bibitem{mongodb_definitive}
-Shannon Bradshaw, Eoin Brazil, and Kristina Chodorow.
-\newblock {\em MongoDB: The Definitive Guide}.
-\newblock O'Reilly Media, 3rd edition, 2019.
-
-\bibitem{docker_docs}
-{Docker Inc.}
-\newblock Docker documentation, 2024.
-
-\bibitem{mongodb_manual}
-MongoDB Inc.
-\newblock Mongodb documentation.
-\newblock https://docs.mongodb.com, 2024.
-\newblock Accessed: 2024-01-15. https://docs.mongodb.com.
-
-\bibitem{jwt_spec}
-Michael~B. Jones, John Bradley, and Nat Sakimura.
-\newblock Json web token (jwt) rfc 7519, 2015.
-
-\bibitem{json_schema}
-{JSON Schema Org}.
-\newblock Json schema validation specification, 2024.
+\bibitem{mongodb_docs}
+{MongoDB Inc.}, ``Mongodb documentation,'' 2024.
+\newblock Accessed: 2024-02-13.
 
 \bibitem{kleppmann2017designing}
-Martin Kleppmann.
-\newblock {\em Designing Data-Intensive Applications}.
+M.~Kleppmann, {\em Designing Data-Intensive Applications}.
 \newblock O'Reilly Media, 2017.
 
+\bibitem{cap_theorem}
+E.~Brewer, ``Cap twelve years later: How the \"rules\" have changed,'' 2012.
+\newblock Accessed: 2024-02-13.
+
+\bibitem{mongodb_manual}
+M.~Inc., ``Mongodb documentation.'' https://docs.mongodb.com, 2024.
+\newblock Accessed: 2024-01-15. https://docs.mongodb.com.
+
+\bibitem{mongodb_indexing}
+{MongoDB Inc.}, ``Mongodb indexing strategies,'' 2024.
+\newblock Accessed: 2024-02-13.
+
+\bibitem{nodejs_docs}
+{OpenJS Foundation}, ``Node.js documentation,'' 2024.
+\newblock Accessed: 2024-02-13.
+
+\bibitem{docker_docs}
+{Docker Inc.}, ``Docker documentation,'' 2024.
+\newblock Accessed: 2024-02-13.
+
+\bibitem{banker2011mongodb}
+K.~Banker, P.~Bakkum, S.~Verch, D.~Garrett, and D.~Hows, {\em MongoDB in
+  Action}.
+\newblock Manning Publications, 2011.
+
+\bibitem{json_schema}
+{JSON Schema Org}, ``Json schema validation specification,'' 2024.
+\newblock Accessed: 2024-02-13.
+
+\bibitem{rbac_education}
+R.~Williams and S.~Thompson, ``Role-based access control in educational
+  platforms,'' {\em Journal of Information Security}, vol.~8, no.~2,
+  pp.~78--92, 2021.
+
+\bibitem{mongodb_definitive}
+S.~Bradshaw, E.~Brazil, and K.~Chodorow, {\em MongoDB: The Definitive Guide}.
+\newblock O'Reilly Media, 3rd~ed., 2019.
+
 \bibitem{martin2017clean}
-Robert~C. Martin.
-\newblock {\em Clean Architecture: A Craftsman's Guide to Software Structure
-  and Design}.
+R.~C. Martin, {\em Clean Architecture: A Craftsman's Guide to Software
+  Structure and Design}.
 \newblock Prentice Hall, 2017.
 
 \bibitem{sharding_pattern}
-{Microsoft Azure}.
-\newblock Data partitioning guidance, 2024.
-
-\bibitem{mongodb_docs}
-{MongoDB Inc.}
-\newblock Mongodb documentation, 2024.
-
-\bibitem{mongodb_indexing}
-{MongoDB Inc.}
-\newblock Mongodb indexing strategies, 2024.
-
-\bibitem{express_docs}
-{OpenJS Foundation}.
-\newblock Express.js documentation, 2024.
-
-\bibitem{nodejs_docs}
-{OpenJS Foundation}.
-\newblock Node.js documentation, 2024.
-
-\bibitem{sadalage2012nosql}
-Pramod~J. Sadalage and Martin Fowler.
-\newblock {\em NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot
-  Persistence}.
-\newblock Addison-Wesley Professional, 2012.
+{Microsoft Azure}, ``Data partitioning guidance,'' 2024.
+\newblock Accessed: 2024-02-13.
 
 \end{thebibliography}
