@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: report.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--entry type for "mongodb_docs" isn't style-file defined
+--line 106 of file references.bib
+Warning--entry type for "nodejs_docs" isn't style-file defined
+--line 122 of file references.bib
+Warning--entry type for "mongodb_indexing" isn't style-file defined
+--line 162 of file references.bib
+Warning--entry type for "express_docs" isn't style-file defined
+--line 170 of file references.bib
+Warning--entry type for "jwt_spec" isn't style-file defined
+--line 187 of file references.bib
+Warning--entry type for "sharding_pattern" isn't style-file defined
+--line 195 of file references.bib
+Warning--entry type for "docker_docs" isn't style-file defined
+--line 203 of file references.bib
+Warning--entry type for "json_schema" isn't style-file defined
+--line 219 of file references.bib
+Warning--I didn't find a database entry for "rbac_mongodb"
+You've used 14 entries,
+            2118 wiz_defined-function locations,
+            550 strings with 5168 characters,
+and the built_in function-call counts, 3197 in all, are:
+= -- 277
+> -- 147
+< -- 0
++ -- 60
+- -- 46
+* -- 137
+:= -- 549
+add.period$ -- 35
+call.type$ -- 14
+change.case$ -- 61
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 123
+empty$ -- 309
+format.name$ -- 46
+if$ -- 678
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 10
+newline$ -- 66
+num.names$ -- 28
+pop$ -- 128
+preamble$ -- 1
+purify$ -- 51
+quote$ -- 0
+skip$ -- 100
+stack$ -- 0
+substring$ -- 70
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 0
+while$ -- 28
+width$ -- 16
+write$ -- 129
+(There were 9 warnings)

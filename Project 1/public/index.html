@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech Analytics Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>EdTech Analytics Platform</h1>
+        <p>MongoDB-based Learning Management System</p>
+    </header>
+
+    <nav>
+        <button class="tab-btn active" onclick="showTab('users')">Users</button>
+        <button class="tab-btn" onclick="showTab('courses')">Courses</button>
+        <button class="tab-btn" onclick="showTab('progress')">Progress</button>
+        <button class="tab-btn" onclick="showTab('analytics')">Analytics</button>
+    </nav>
+
+    <main>
+        <!-- Users Section -->
+        <section id="users" class="tab-content active">
+            <h2>Users Management</h2>
+
+            <div class="form-section">
+                <h3>Create User</h3>
+                <form id="createUserForm">
+                    <input type="text" id="userName" placeholder="Name" required>
+                    <input type="email" id="userEmail" placeholder="Email" required>
+                    <input type="text" id="userInterests" placeholder="Interests (comma-separated)" required>
+                    <select id="userRole" required>
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <input type="datetime-local" id="userEnrollmentDate" required>
+                    <label><input type="checkbox" id="userIsActive" checked> Active</label>
+                    <button type="submit">Create User</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Get Users</h3>
+                <form id="getUsersForm">
+                    <input type="text" id="getUserRole" placeholder="Role (optional)">
+                    <input type="text" id="getUserName" placeholder="Name (optional)">
+                    <input type="text" id="getUserInterests" placeholder="Interests (optional)">
+                    <button type="submit">Get Users</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Update User</h3>
+                <form id="updateUserForm">
+                    <input type="text" id="updateUserId" placeholder="User ID" required>
+                    <input type="text" id="updateUserName" placeholder="New Name">
+                    <input type="email" id="updateUserEmail" placeholder="New Email">
+                    <input type="text" id="updateUserInterests" placeholder="New Interests">
+                    <button type="submit">Update User</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Delete User</h3>
+                <form id="deleteUserForm">
+                    <input type="text" id="deleteUserId" placeholder="User ID" required>
+                    <button type="submit">Delete User</button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <h3>Results</h3>
+                <pre id="usersResults"></pre>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="tab-content">
+            <h2>Courses Management</h2>
+
+            <div class="form-section">
+                <h3>Create Course</h3>
+                <form id="createCourseForm">
+                    <input type="text" id="courseTitle" placeholder="Title" required>
+                    <input type="text" id="courseLecturer" placeholder="Lecturer" required>
+                    <input type="text" id="courseCategory" placeholder="Category" required>
+                    <input type="number" id="coursePrice" placeholder="Price" step="0.01" required>
+                    <textarea id="courseModules" placeholder="Modules (JSON array)" rows="4" required></textarea>
+                    <label><input type="checkbox" id="courseIsActive" checked> Active</label>
+                    <button type="submit">Create Course</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Get Courses</h3>
+                <form id="getCoursesForm">
+                    <input type="text" id="getCourseCategory" placeholder="Category (optional)">
+                    <input type="number" id="getCoursePriceLte" placeholder="Max Price (optional)">
+                    <input type="number" id="getCoursePriceGte" placeholder="Min Price (optional)">
+                    <input type="text" id="getCourseLecturer" placeholder="Lecturer (optional)">
+                    <button type="submit">Get Courses</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Update Course</h3>
+                <form id="updateCourseForm">
+                    <input type="text" id="updateCourseId" placeholder="Course ID" required>
+                    <input type="text" id="updateCourseTitle" placeholder="New Title">
+                    <input type="text" id="updateCourseLecturer" placeholder="New Lecturer">
+                    <input type="text" id="updateCourseCategory" placeholder="New Category">
+                    <input type="number" id="updateCoursePrice" placeholder="New Price" step="0.01">
+                    <button type="submit">Update Course</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Delete Course</h3>
+                <form id="deleteCourseForm">
+                    <input type="text" id="deleteCourseId" placeholder="Course ID" required>
+                    <button type="submit">Delete Course</button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <h3>Results</h3>
+                <pre id="coursesResults"></pre>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="tab-content">
+            <h2>Progress Management</h2>
+
+            <div class="form-section">
+                <h3>Create Progress Record</h3>
+                <form id="createProgressForm">
+                    <input type="text" id="progressStudentId" placeholder="Student ID" required>
+                    <input type="text" id="progressCourseId" placeholder="Course ID" required>
+                    <select id="progressStatus" required>
+                        <option value="enrolled">Enrolled</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                        <option value="dropped">Dropped</option>
+                    </select>
+                    <input type="datetime-local" id="progressEnrollmentDate" required>
+                    <input type="number" id="progressCurrentModule" placeholder="Current Module" min="1">
+                    <input type="number" id="progressCurrentLecture" placeholder="Current Lecture" min="1">
+                    <textarea id="progressTestResults" placeholder="Test Results (JSON array)" rows="3"></textarea>
+                    <textarea id="progressAlternativeCompletion" placeholder="Alternative Completion (JSON object)" rows="3"></textarea>
+                    <button type="submit">Create Progress Record</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Get Progress</h3>
+                <form id="getProgressForm">
+                    <input type="text" id="getProgressStatus" placeholder="Status (optional)">
+                    <input type="text" id="getProgressStudentId" placeholder="Student ID (optional)">
+                    <input type="text" id="getProgressCourseId" placeholder="Course ID (optional)">
+                    <button type="submit">Get Progress</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Update Progress</h3>
+                <form id="updateProgressForm">
+                    <input type="text" id="updateProgressId" placeholder="Progress ID" required>
+                    <select id="updateProgressStatus">
+                        <option value="">Keep Current</option>
+                        <option value="enrolled">Enrolled</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                        <option value="dropped">Dropped</option>
+                    </select>
+                    <input type="number" id="updateProgressCurrentModule" placeholder="Current Module" min="1">
+                    <input type="number" id="updateProgressCurrentLecture" placeholder="Current Lecture" min="1">
+                    <button type="submit">Update Progress</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h3>Delete Progress</h3>
+                <form id="deleteProgressForm">
+                    <input type="text" id="deleteProgressId" placeholder="Progress ID" required>
+                    <button type="submit">Delete Progress</button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <h3>Results</h3>
+                <pre id="progressResults"></pre>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="tab-content">
+            <h2>Analytics</h2>
+
+            <div class="analytics-section">
+                <h3>Top 5 Active Students</h3>
+                <button onclick="getTopActiveStudents()">Load Top Students</button>
+                <pre id="topStudentsResults"></pre>
+            </div>
+
+            <div class="analytics-section">
+                <h3>Students Completed by Alternative Methods</h3>
+                <button onclick="getAlternativeCompletionStudents()">Load Alternative Completions</button>
+                <pre id="alternativeCompletionResults"></pre>
+            </div>
+
+            <div class="analytics-section">
+                <h3>Course Enrollment Statistics</h3>
+                <button onclick="getCourseEnrollmentStats()">Load Enrollment Stats</button>
+                <pre id="enrollmentStatsResults"></pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

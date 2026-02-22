@@ -1,0 +1,150 @@
+% ============================================================================
+% Глава 3: Архитектура и реализация
+% ============================================================================
+
+\section{АРХИТЕКТУРА И РЕАЛИЗАЦИЯ}
+
+\subsection{Структура на данните}
+
+Системата за управление на автопарк с IoT интеграция използва три основни колекции в MongoDB, които естествено моделират бизнес логиката на логистичната платформа. Структурата е проектирана с акцент върху ефективността на четене и гъвкавостта при еволюция на системата.
+
+\subsubsection{Колекция vehicles}
+
+Колекцията съхранява информация за превозните средства в автопарка. Всеки документ представлява отделно превозно средство и съдържа технически характеристики, статус и история на поддръжката.
+
+\begin{lstlisting}[language=JavaScript,caption=Примерен документ от колекцията vehicles]
+{
+  "_id": "V001",
+  "make": "Mercedes-Benz",
+  "model": "Actros",
+  "year": 2020,
+  "load_capacity": 25,
+  "fuel_type": "diesel",
+  "status": "active",
+  "maintenance_history": [
+    {
+      "date": "2023-01-15T00:00:00.000Z",
+      "description": "Oil change"
+    },
+    {
+      "date": "2023-06-20T00:00:00.000Z",
+      "description": "Tire replacement"
+    }
+  ]
+}
+\end{lstlisting}
+
+\subsubsection{Колекция shipments}
+
+Тази колекция съдържа информация за товарните пратки, които се транспортират от превозните средства. Документите включват маршрутна информация, теглителни характеристики и статус на доставката.
+
+\begin{lstlisting}[language=JavaScript,caption=Примерен документ от колекцията shipments]
+{
+  "_id": "S001",
+  "origin": "Sofia",
+  "destination": "Plovdiv",
+  "weight": 15,
+  "priority": "high",
+  "assigned_vehicle_id": "V001",
+  "status": "delivered",
+  "estimated_arrival": "2023-10-01T10:00:00.000Z"
+}
+\end{lstlisting}
+
+\subsubsection{Колекция telemetry}
+
+Колекцията съхранява сензорни данни в реално време от IoT устройствата, монтирани на превозните средства. Това е най-динамичната колекция с висока честота на записване.
+
+\begin{lstlisting}[language=JavaScript,caption=Примерен документ от колекцията telemetry]
+{
+  "vehicle_id": "V001",
+  "timestamp": "2023-10-01T08:00:00.000Z",
+  "gps": {
+    "lat": 42.6977,
+    "lng": 23.3219
+  },
+  "metrics": {
+    "speed": 80,
+    "fuel_level": 85.5,
+    "engine_temp": 90
+  }
+}
+\end{lstlisting}
+
+Тази структура демонстрира гъвкавостта на документо-ориентирания модел - полето `readings` в сензорите позволява съхранение на времеви серии директно в документа, а референциите към превозни средства осигуряват ефективни връзки \cite{json_schema}.
+
+\subsection{Изпълнявани операции}
+
+\subsubsection{CRUD операции}
+
+Системата реализира пълния набор от CRUD операции върху трите колекции:
+
+\textbf{Създаване (Create):}
+\begin{itemize}
+    \item Добавяне на ново превозно средство с основни характеристики и празен списък сензори
+    \item Регистрация на сензор с начални параметри и празен масив за показания
+    \item Създаване на запис за поддръжка с планирана дата и статус "pending"
+\end{itemize}
+
+\textbf{Четене (Read):}
+\begin{itemize}
+    \item Филтриране по статус и тип гориво: \texttt{db.vehicles.find(\{status: "active", fuel\_type: "diesel"\})}
+    \item Търсене по регулярен израз в регистрационни номера: \texttt{db.vehicles.find(\{license\_plate: \{\$regex: "CA", \$options: "i"\}\})}
+    \item Филтриране по диапазон на капацитет: \texttt{db.vehicles.find(\{capacity: \{\$gte: 20000, \$lte: 30000\}\})}
+    \item Комбинирани условия с OR: \texttt{db.maintenance.find(\{\\$or: [\{status: "completed"\}, \{status: "in\_progress"\}]\})}
+\end{itemize}
+
+\textbf{Актуализиране (Update):}
+\begin{itemize}
+    \item Добавяне на ново показание към сензор: \texttt{db.sensors.updateOne(\{\_id: ObjectId("...")\}, \{\$push: \{readings: \{value: 90.0, timestamp: new Date(), status: "normal"\}\}\})}
+    \item Актуализиране на локация на превозно средство: \texttt{db.vehicles.updateOne(\{\_id: ObjectId("...")\}, \{\$set: \{location: \{latitude: 42.7, longitude: 23.3, last\_update: new Date()\}\}\})}
+    \item Увеличаване на общите разходи за поддръжка: \texttt{db.maintenance.updateOne(\{\_id: ObjectId("...")\}, \{\$inc: \{total\_cost: 50.00\}\})}
+\end{itemize}
+
+\textbf{Изтриване (Delete):}
+\begin{itemize}
+    \item Премахване на неактивни сензори: \texttt{db.sensors.deleteMany(\{is\_active: false\})}
+    \item Изтриване на конкретен запис за поддръжка: \texttt{db.maintenance.deleteOne(\{\_id: ObjectId("...")\}\})}
+\end{itemize}
+
+\subsubsection{Агрегиращи операции}
+
+За анализ на данни е реализирана агрегираща заявка за намиране на превозни средства с най-високи разходи за поддръжка \cite{mongodb_definitive}:
+
+\begin{lstlisting}[language=JavaScript]
+db.maintenance.aggregate([
+  { $match: { status: 'completed' } },
+  {
+    $group: {
+      _id: '$vehicle_id',
+      totalMaintenanceCost: { $sum: '$total_cost' },
+      maintenanceCount: { $sum: 1 },
+      averageCost: { $avg: '$total_cost' }
+    }
+  },
+  { $sort: { totalMaintenanceCost: -1 } },
+  { $limit: 5 },
+  {
+    $lookup: {
+      from: 'vehicles',
+      localField: '_id',
+      foreignField: '_id',
+      as: 'vehicle'
+    }
+  },
+  { $unwind: '$vehicle' },
+  {
+    $project: {
+      licensePlate: '$vehicle.license_plate',
+      model: '$vehicle.model',
+      totalMaintenanceCost: 1,
+      maintenanceCount: 1,
+      averageCost: { $round: ['$averageCost', 2] }
+    }
+  }
+])
+\end{lstlisting}
+
+Тази заявка демонстрира използването на операторите \texttt{\$match}, \texttt{\$group}, \texttt{\$sort}, \texttt{\$limit}, \texttt{\$lookup} и \texttt{\$project} за комплексен анализ на данни от две колекции.
+
+Архитектурата на системата осигурява ефективно управление на IoT данни с висока степен на гъвкавост и производителност, като същевременно поддържа целостта и консистентността на информацията \cite{martin2017clean}.

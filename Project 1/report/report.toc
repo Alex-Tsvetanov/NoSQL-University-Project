@@ -1,0 +1,26 @@
+\babel@toc {bulgarian}{}\relax 
+\contentsline {section}{\numberline {I}ВЪВЕДЕНИЕ}{2}{section.1}%
+\contentsline {section}{\numberline {II}ТЕОРЕТИЧНА И ТЕХНОЛОГИЧНА ОБОСНОВКА}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Нерелационни бази данни}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Документо-ориентиран модел на данни}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}MongoDB - избрана технология}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Използвани технологии}{6}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Node.js и Express.js}{6}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Допълнителни технологии}{6}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Обосновка на технологичния стек}{6}{subsection.2.5}%
+\contentsline {section}{\numberline {III}АРХИТЕКТУРА И РЕАЛИЗАЦИЯ}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Структура на данните}{8}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Колекция users}{8}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Колекция courses}{8}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Колекция progress}{9}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Изпълнявани операции}{10}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}CRUD операции}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Агрегиращи операции}{11}{subsubsection.3.2.2}%
+\contentsline {section}{\numberline {IV}ЗАКЛЮЧЕНИЕ}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Обобщение на проекта}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Основни изводи}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Постигнати резултати}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Предимства на нерелационния подход}{15}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Предизвикателства и решения}{16}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Препоръки за бъдещо развитие}{16}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Заключителни мисли}{17}{subsection.4.7}%

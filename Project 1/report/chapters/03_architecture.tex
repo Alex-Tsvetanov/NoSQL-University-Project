@@ -1,0 +1,163 @@
+% ============================================================================
+% Глава 3: Архитектура и реализация
+% ============================================================================
+
+\section{АРХИТЕКТУРА И РЕАЛИЗАЦИЯ}
+
+\subsection{Структура на данните}
+
+Базата данни е организирана в три основни колекции, които отразяват бизнес логиката на платформата за електронно обучение. Дизайнът балансира между влагане на документи (embedded documents) за тясно свързани данни и референции за поддържане на връзки между отделни колекции \cite{banker2011mongodb}.
+
+\subsubsection{Колекция users}
+
+Колекцията съхранява профилите на потребителите на системата - студенти, инструктори и администратори. Структурата включва основни лични данни и предпочитания за персонализация.
+
+\begin{lstlisting}[language=JavaScript,caption=Примерен документ от колекцията users]
+{
+  "_id": ObjectId("507f1f77bcf86cd799439011"),
+  "name": "Иван Петров",
+  "email": "ivan.petrov@university.edu",
+  "interests": ["Data Science", "Machine Learning"],
+  "role": "student",
+  "enrollment_date": "2023-09-01T00:00:00Z",
+  "is_active": true
+}
+\end{lstlisting}
+
+\subsubsection{Колекция courses}
+
+Съдържа информация за наличните курсове. Модулите и лекциите са вложени директно в документа, тъй като представляват неделима част от курса и рядко се достъпват независимо.
+
+\begin{lstlisting}[language=JavaScript]
+{
+  "_id": ObjectId("507f1f77bcf86cd799439012"),
+  "title": "Въведение в Data Science",
+  "lecturer": "д-р Божидар Иванов",
+  "category": "Data Science",
+  "price": 299.99,
+  "modules": [
+    {
+      "title": "Модул 1: Основи на данните",
+      "lectures": [
+        {
+          "title": "Какво са данните?",
+          "duration": 45,
+          "video_url": "https://example.com/lecture1.mp4"
+        }
+      ]
+    }
+  ],
+  "created_at": "2023-01-15T00:00:00Z",
+  "is_active": true
+}
+\end{lstlisting}
+
+\subsubsection{Колекция progress}
+
+Проследява напредъка на студентите по различните курсове. Използва референции към потребители и курсове, за да избегне дублиране на данни, като същевременно позволява гъвкавост в записването на допълнителни метаданни.
+
+\begin{lstlisting}[language=JavaScript]
+{
+  "_id": ObjectId("507f1f77bcf86cd799439013"),
+  "student_id": ObjectId("507f1f77bcf86cd799439011"),
+  "course_id": ObjectId("507f1f77bcf86cd799439012"),
+  "status": "in_progress",
+  "enrollment_date": "2023-09-15T00:00:00Z",
+  "current_module": 1,
+  "current_lecture": 2,
+  "test_results": [
+    {
+      "module": 1,
+      "score": 85,
+      "attempts": 1,
+      "date_taken": "2023-10-01T00:00:00Z"
+    }
+  ],
+  "last_activity": "2023-10-20T14:30:00Z",
+  "alternative_completion": {
+    "type": "project",
+    "description": "Изграждане на визуализация на данни",
+    "submission_date": "2023-11-01T00:00:00Z",
+    "grade": "A"
+  }
+}
+\end{lstlisting}
+
+Тази структура демонстрира гъвкавостта на документо-ориентирания модел - полето \texttt{alternative\_completion} се появява само при студенти, които използват алтернативни методи за завършване, без да се налага добавяне на NULL стойности в релационна база данни \cite{json_schema}.
+
+\subsection{Изпълнявани операции}
+
+\subsubsection{CRUD операции}
+
+Системата реализира пълния набор от CRUD операции върху трите колекции:
+
+\textbf{Създаване (Create):}
+\begin{itemize}
+    \item \textbf{RBAC}: Вградена система за управление на достъпа чрез роли и потребители \cite{rbac_mongodb}.
+    \item Добавяне на нов потребител с масив от интереси
+    \item Създаване на курс с вложени модули и лекции
+    \item Регистрация на студент в курс с начални параметри
+\end{itemize}
+
+\textbf{Четене (Read):}
+\begin{itemize}
+    \item Филтриране по роля и статус на активност: \texttt{db.users.find(\{role: "student", is\_active: true\})}
+    \item Търсене по регулярен израз в заглавия на курсове: \texttt{db.courses.find(\{title: \{\$regex: "Data", \$options: "i"\}\})}
+    \item Филтриране по диапазон на цени: \texttt{db.courses.find(\{price: \{\$gte: 200, \$lte: 400\}\})}
+    \item Комбинирани условия с OR: \texttt{db.progress.find(\{\\$or: [\{status: "completed"\}, \{status: "in\_progress"\}]\})}
+\end{itemize}
+
+\textbf{Актуализиране (Update):}
+\begin{itemize}
+    \item Добавяне на нова оценка в масива на резултатите: \texttt{db.progress.updateOne(\{\_id: ObjectId("...")\}, \{\$push: \{test\_results: \{module: 2, score: 92, attempts: 1, date\_taken: new Date()\}\}\})}
+    \item Увеличаване на текущата лекция: \texttt{db.progress.updateOne(\{\_id: ObjectId("...")\}, \{\$inc: \{current\_lecture: 1\}\})}
+    \item Актуализиране на множество документи: \texttt{db.users.updateMany(\{role: "student"\}, \{\$set: \{is\_active: true\}\})}
+\end{itemize}
+
+\textbf{Изтриване (Delete):}
+\begin{itemize}
+    \item Премахване на неактивни профили: \texttt{db.users.deleteMany(\{is\_active: false, last\_login: \{\$lt: new Date("2024-01-01")\}\})}
+    \item Изтриване на конкретен запис по ID: \texttt{db.progress.deleteOne(\{\_id: ObjectId("...")\}\})}
+\end{itemize}
+
+\subsubsection{Агрегиращи операции}
+
+За анализ на данни е реализирана агрегираща заявка за намиране на топ 5 най-активни студенти \cite{mongodb_definitive}:
+
+\begin{lstlisting}[language=JavaScript,caption=Агрегираща заявка за анализ на топ 5 активни студенти]
+db.progress.aggregate([
+  { $match: { status: 'completed' } },
+  {
+    $group: {
+      _id: '$student_id',
+      completedCourses: { $sum: 1 },
+      averageScore: { $avg: '$test_results.score' },
+      lastActivity: { $max: '$last_activity' }
+    }
+  },
+  { $sort: { completedCourses: -1, averageScore: -1 } },
+  { $limit: 5 },
+  {
+    $lookup: {
+      from: 'users',
+      localField: '_id',
+      foreignField: '_id',
+      as: 'student'
+    }
+  },
+  { $unwind: '$student' },
+  {
+    $project: {
+      studentName: '$student.name',
+      email: '$student.email',
+      completedCourses: 1,
+      averageScore: { $round: ['$averageScore', 1] },
+      lastActivity: 1
+    }
+  }
+])
+\end{lstlisting}
+
+Тази заявка демонстрира използването на операторите \texttt{\$match}, \texttt{\$group}, \texttt{\$sort}, \texttt{\$limit}, \texttt{\$lookup} и \texttt{\$project} за комплексен анализ на данни от две колекции.
+
+Архитектурата на системата осигурява ефективно управление на образователни данни с висока степен на гъвкавост и производителност, като същевременно поддържа целостта и консистентността на информацията \cite{martin2017clean}.

@@ -1,0 +1,35 @@
+{
+  "name": "nosql-fleet-tracking",
+  "version": "1.0.0",
+  "description": "IoT Fleet Tracking system with MongoDB",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "seed": "node scripts/seedData.js",
+    "crud": "node scripts/crudOperations.js",
+    "aggregation": "node scripts/aggregationQueries.js",
+    "access-control": "node scripts/accessControl.js"
+  },
+  "keywords": [
+    "mongodb",
+    "nosql",
+    "fleet-tracking",
+    "iot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

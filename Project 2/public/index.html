@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Fleet Tracking Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>IoT Fleet Tracking Dashboard</h1>
+        <p>Real-time monitoring of vehicles, shipments, and telemetry data</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('vehicles')" class="active">Vehicles</button>
+        <button onclick="showSection('shipments')">Shipments</button>
+        <button onclick="showSection('telemetry')">Telemetry</button>
+        <button onclick="refreshData()">Refresh Data</button>
+    </nav>
+
+    <main>
+        <section id="vehicles" class="data-section active">
+            <h2>Vehicles</h2>
+            <div id="vehicles-content" class="content">
+                <div class="loading">Loading vehicles...</div>
+            </div>
+        </section>
+
+        <section id="shipments" class="data-section">
+            <h2>Shipments</h2>
+            <div id="shipments-content" class="content">
+                <div class="loading">Loading shipments...</div>
+            </div>
+        </section>
+
+        <section id="telemetry" class="data-section">
+            <h2>Telemetry Data</h2>
+            <div id="telemetry-content" class="content">
+                <div class="loading">Loading telemetry...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IoT Fleet Tracking System</p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

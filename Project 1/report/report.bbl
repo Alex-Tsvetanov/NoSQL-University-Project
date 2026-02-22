@@ -1,0 +1,68 @@
+\begin{thebibliography}{10}
+
+\bibitem{banker2011mongodb}
+Kyle Banker, Peter Bakkum, Shaun Verch, Doug Garrett, and David Hows.
+\newblock {\em MongoDB in Action}.
+\newblock Manning Publications, 2011.
+
+\bibitem{mongodb_definitive}
+Shannon Bradshaw, Eoin Brazil, and Kristina Chodorow.
+\newblock {\em MongoDB: The Definitive Guide}.
+\newblock O'Reilly Media, 3rd edition, 2019.
+
+\bibitem{docker_docs}
+{Docker Inc.}
+\newblock Docker documentation, 2024.
+
+\bibitem{mongodb_manual}
+MongoDB Inc.
+\newblock Mongodb documentation.
+\newblock https://docs.mongodb.com, 2024.
+\newblock Accessed: 2024-01-15. https://docs.mongodb.com.
+
+\bibitem{jwt_spec}
+Michael~B. Jones, John Bradley, and Nat Sakimura.
+\newblock Json web token (jwt) rfc 7519, 2015.
+
+\bibitem{json_schema}
+{JSON Schema Org}.
+\newblock Json schema validation specification, 2024.
+
+\bibitem{kleppmann2017designing}
+Martin Kleppmann.
+\newblock {\em Designing Data-Intensive Applications}.
+\newblock O'Reilly Media, 2017.
+
+\bibitem{martin2017clean}
+Robert~C. Martin.
+\newblock {\em Clean Architecture: A Craftsman's Guide to Software Structure
+  and Design}.
+\newblock Prentice Hall, 2017.
+
+\bibitem{sharding_pattern}
+{Microsoft Azure}.
+\newblock Data partitioning guidance, 2024.
+
+\bibitem{mongodb_docs}
+{MongoDB Inc.}
+\newblock Mongodb documentation, 2024.
+
+\bibitem{mongodb_indexing}
+{MongoDB Inc.}
+\newblock Mongodb indexing strategies, 2024.
+
+\bibitem{express_docs}
+{OpenJS Foundation}.
+\newblock Express.js documentation, 2024.
+
+\bibitem{nodejs_docs}
+{OpenJS Foundation}.
+\newblock Node.js documentation, 2024.
+
+\bibitem{sadalage2012nosql}
+Pramod~J. Sadalage and Martin Fowler.
+\newblock {\em NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot
+  Persistence}.
+\newblock Addison-Wesley Professional, 2012.
+
+\end{thebibliography}
