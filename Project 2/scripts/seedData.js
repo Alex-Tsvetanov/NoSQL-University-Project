@@ -127,6 +127,8 @@ const shipments = [
     priority: 'high',
     assigned_vehicle_id: 'V001',
     status: 'delivered',
+    start_time: new Date('2023-10-01T06:00:00Z'),
+    end_time: new Date('2023-10-01T12:00:00Z'),
     estimated_arrival: new Date('2023-10-01T10:00:00Z')
   },
   {
@@ -137,6 +139,8 @@ const shipments = [
     priority: 'medium',
     assigned_vehicle_id: 'V002',
     status: 'in-transit',
+    start_time: new Date('2023-10-02T09:00:00Z'),
+    end_time: new Date('2023-10-02T15:00:00Z'),
     estimated_arrival: new Date('2023-10-02T14:00:00Z')
   },
   {
@@ -147,6 +151,8 @@ const shipments = [
     priority: 'low',
     assigned_vehicle_id: 'V003',
     status: 'pending',
+    start_time: new Date('2023-10-03T11:00:00Z'),
+    end_time: new Date('2023-10-03T17:00:00Z'),
     estimated_arrival: new Date('2023-10-03T16:00:00Z')
   },
   {
@@ -157,6 +163,8 @@ const shipments = [
     priority: 'high',
     assigned_vehicle_id: 'V004',
     status: 'delivered',
+    start_time: new Date('2023-10-04T12:00:00Z'),
+    end_time: new Date('2023-10-04T15:00:00Z'),
     estimated_arrival: new Date('2023-10-04T12:00:00Z')
   },
   {
@@ -167,6 +175,8 @@ const shipments = [
     priority: 'medium',
     assigned_vehicle_id: 'V005',
     status: 'in-transit',
+    start_time: new Date('2023-10-05T14:00:00Z'),
+    end_time: new Date('2023-10-05T20:00:00Z'),
     estimated_arrival: new Date('2023-10-05T18:00:00Z')
   },
   {
@@ -177,6 +187,8 @@ const shipments = [
     priority: 'high',
     assigned_vehicle_id: 'V007',
     status: 'pending',
+    start_time: new Date('2023-10-06T15:00:00Z'),
+    end_time: new Date('2023-10-06T22:00:00Z'),
     estimated_arrival: new Date('2023-10-06T20:00:00Z')
   },
   {
@@ -187,6 +199,8 @@ const shipments = [
     priority: 'low',
     assigned_vehicle_id: 'V008',
     status: 'delivered',
+    start_time: new Date('2023-10-07T04:00:00Z'),
+    end_time: new Date('2023-10-07T10:00:00Z'),
     estimated_arrival: new Date('2023-10-07T08:00:00Z')
   },
   {
@@ -197,6 +211,8 @@ const shipments = [
     priority: 'medium',
     assigned_vehicle_id: 'V009',
     status: 'in-transit',
+    start_time: new Date('2023-10-08T18:00:00Z'),
+    end_time: new Date('2023-10-08T23:59:00Z'),
     estimated_arrival: new Date('2023-10-08T22:00:00Z')
   },
   {
@@ -207,6 +223,8 @@ const shipments = [
     priority: 'low',
     assigned_vehicle_id: 'V001',
     status: 'pending',
+    start_time: new Date('2023-10-09T10:00:00Z'),
+    end_time: new Date('2023-10-09T23:00:00Z'),
     estimated_arrival: new Date('2023-10-09T11:00:00Z')
   },
   {
@@ -217,6 +235,8 @@ const shipments = [
     priority: 'high',
     assigned_vehicle_id: 'V002',
     status: 'delivered',
+    start_time: new Date('2023-10-10T10:00:00Z'),
+    end_time: new Date('2023-10-11T02:00:00Z'),
     estimated_arrival: new Date('2023-10-10T13:00:00Z')
   },
   {
@@ -227,6 +247,8 @@ const shipments = [
     priority: 'medium',
     assigned_vehicle_id: 'V004',
     status: 'in-transit',
+    start_time: new Date('2023-10-11T00:00:00Z'),
+    end_time: new Date('2023-10-11T18:00:00Z'),
     estimated_arrival: new Date('2023-10-11T15:00:00Z')
   },
   {
@@ -237,6 +259,8 @@ const shipments = [
     priority: 'high',
     assigned_vehicle_id: 'V007',
     status: 'pending',
+    start_time: new Date('2023-10-12T00:00:00Z'),
+    end_time: new Date('2023-10-12T20:00:00Z'),
     estimated_arrival: new Date('2023-10-12T17:00:00Z')
   },
   {
@@ -247,6 +271,8 @@ const shipments = [
     priority: 'low',
     assigned_vehicle_id: 'V008',
     status: 'delivered',
+    start_time: new Date('2023-10-13T00:00:00Z'),
+    end_time: new Date('2023-10-13T12:00:00Z'),
     estimated_arrival: new Date('2023-10-13T09:00:00Z')
   },
   {
@@ -257,6 +283,8 @@ const shipments = [
     priority: 'medium',
     assigned_vehicle_id: 'V009',
     status: 'in-transit',
+    start_time: new Date('2023-10-14T10:00:00Z'),
+    end_time: new Date('2023-10-14T23:00:00Z'),
     estimated_arrival: new Date('2023-10-14T21:00:00Z')
   },
   {
@@ -267,6 +295,8 @@ const shipments = [
     priority: 'low',
     assigned_vehicle_id: 'V001',
     status: 'pending',
+    start_time: new Date('2023-10-15T10:00:00Z'),
+    end_time: new Date('2023-10-15T22:00:00Z'),
     estimated_arrival: new Date('2023-10-15T19:00:00Z')
   }
 ];

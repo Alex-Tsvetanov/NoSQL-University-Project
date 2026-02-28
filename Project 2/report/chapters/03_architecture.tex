@@ -36,7 +36,7 @@
 
 \subsubsection{Колекция shipments}
 
-Тази колекция съдържа информация за товарните пратки, които се транспортират от превозните средства. Документите включват маршрутна информация, теглителни характеристики и статус на доставката.
+Тази колекция съдържа информация за товарните пратки, които се транспортират от превозните средства. Документите включват маршрутна информация, теглителни характеристики, статус на доставката, както и времеви рамки (\texttt{start\_time} и \texttt{end\_time}), които дефинират пряката връзка с телеметричните данни на съответното превозно средство в този времеви период.
 
 \begin{lstlisting}[language=JavaScript,caption=Примерен документ от колекцията shipments]
 {
@@ -47,6 +47,8 @@
   "priority": "high",
   "assigned_vehicle_id": "V001",
   "status": "delivered",
+  "start_time": "2023-10-01T06:00:00.000Z",
+  "end_time": "2023-10-01T12:00:00.000Z",
   "estimated_arrival": "2023-10-01T10:00:00.000Z"
 }
 \end{lstlisting}
@@ -146,5 +148,33 @@ db.maintenance.aggregate([
 \end{lstlisting}
 
 Тази заявка демонстрира използването на операторите \texttt{\$match}, \texttt{\$group}, \texttt{\$sort}, \texttt{\$limit}, \texttt{\$lookup} и \texttt{\$project} за комплексен анализ на данни от две колекции.
+
+\subsection{Сигурност и контрол на достъпа}
+
+В системата е реализиран Role-Based Access Control (RBAC) чрез функционалностите на MongoDB. Създадени са следните роли за управление на достъпа:
+\begin{itemize}
+    \item \textbf{DataAnalyst}: Роля с права само за четене (\texttt{find}) върху всички колекции (\texttt{vehicles}, \texttt{shipments}, \texttt{telemetry}). Използва се за аналитични нужди без риск от модификация на данните.
+    \item \textbf{FleetManager}: Роля с пълни CRUD права (\texttt{find}, \texttt{insert}, \texttt{update}, \texttt{remove}) върху колекциите \texttt{vehicles} и \texttt{shipments}, но само с право на четене върху \texttt{telemetry}.
+    \item \textbf{LogisticsApp}: Системна роля, предназначена за IoT устройствата, с права единствено за запис (\texttt{insert}) в колекцията \texttt{telemetry}.
+\end{itemize}
+
+Ролите са назначени на съответните потребители (\texttt{data\_analyst}, \texttt{fleet\_manager}, \texttt{logistics\_app}), гарантирайки принципа на най-малката привилегия (Principle of Least Privilege).
+
+\subsection{Тестване и валидация}
+
+Системата е покрита с автоматизирани unit тестове (чрез Jest), които валидират целостта на данните и логиката на връзките. Специално внимание е обърнато на негативните тестове за проверка на валидността на времевите рамки на пратките и ограниченията за достъп. 
+
+Примерни логове от симулирани невалидни и неоторизирани заявки, прихванати по време на тестването:
+
+\begin{lstlisting}[language=bash,caption=Логове от отхвърлени заявки и неоторизиран достъп]
+[Error Logged] Invalid request: Shipment S999 missing start or end time
+[Error Logged] Invalid request: start_time cannot be after end_time for Shipment S999
+[AccessControl Error] User with role 'DataAnalyst' denied insert on vehicles.
+  -> MongoServerError: not authorized on fleetTracking to execute command { insert: "vehicles" }
+[AccessControl Error] User with role 'FleetManager' denied insert on telemetry.
+  -> MongoServerError: not authorized on fleetTracking to execute command { insert: "telemetry" }
+[AccessControl Error] User with role 'LogisticsApp' denied find on vehicles.
+  -> MongoServerError: not authorized on fleetTracking to execute command { find: "vehicles" }
+\end{lstlisting}
 
 Архитектурата на системата осигурява ефективно управление на IoT данни с висока степен на гъвкавост и производителност, като същевременно поддържа целостта и консистентността на информацията \cite{martin2017clean}.

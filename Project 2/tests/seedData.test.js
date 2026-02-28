@@ -35,6 +35,8 @@ describe('Seed Data', () => {
       expect(shipment).toHaveProperty('priority');
       expect(shipment).toHaveProperty('assigned_vehicle_id');
       expect(shipment).toHaveProperty('status');
+      expect(shipment).toHaveProperty('start_time');
+      expect(shipment).toHaveProperty('end_time');
       expect(shipment).toHaveProperty('estimated_arrival');
     });
   });

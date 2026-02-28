@@ -14,13 +14,15 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Колекция courses}{8}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}Колекция progress}{9}{subsubsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.2}Изпълнявани операции}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}CRUD операции}{10}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Агрегиращи операции}{12}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {IV}ЗАКЛЮЧЕНИЕ}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Обобщение на проекта}{14}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Основни изводи}{15}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Постигнати резултати}{15}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Предимства на нерелационния подход}{16}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Предизвикателства и решения}{17}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Препоръки за бъдещо развитие}{17}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Заключителни мисли}{18}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {3.2.1}Управление на достъпа (RBAC)}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}CRUD операции}{11}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Агрегиращи операции}{13}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Тестване и обработка на грешки}{14}{subsection.3.3}%
+\contentsline {section}{\numberline {IV}ЗАКЛЮЧЕНИЕ}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Обобщение на проекта}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Основни изводи}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Постигнати резултати}{17}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Предимства на нерелационния подход}{18}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Предизвикателства и решения}{19}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Препоръки за бъдещо развитие}{19}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Заключителни мисли}{20}{subsection.4.7}%
