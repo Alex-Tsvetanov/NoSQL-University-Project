@@ -1,28 +1,29 @@
 \babel@toc {bulgarian}{}\relax 
-\contentsline {section}{\numberline {I}ВЪВЕДЕНИЕ}{2}{section.1}%
-\contentsline {section}{\numberline {II}ТЕОРЕТИЧНА И ТЕХНОЛОГИЧНА ОБОСНОВКА}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Нерелационни бази данни}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Документо-ориентиран модел на данни}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}MongoDB - избрана технология}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Използвани технологии}{6}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Node.js и Express.js}{6}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Допълнителни технологии}{6}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Обосновка на технологичния стек}{6}{subsection.2.5}%
-\contentsline {section}{\numberline {III}АРХИТЕКТУРА И РЕАЛИЗАЦИЯ}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Структура на данните}{8}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Колекция users}{8}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Колекция courses}{8}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Колекция progress}{9}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}Изпълнявани операции}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Управление на достъпа (RBAC)}{10}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}CRUD операции}{11}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Агрегиращи операции}{13}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Тестване и обработка на грешки}{14}{subsection.3.3}%
-\contentsline {section}{\numberline {IV}ЗАКЛЮЧЕНИЕ}{16}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Обобщение на проекта}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Основни изводи}{17}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Постигнати резултати}{17}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Предимства на нерелационния подход}{18}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Предизвикателства и решения}{19}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Препоръки за бъдещо развитие}{19}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Заключителни мисли}{20}{subsection.4.7}%
+\contentsline {section}{\numberline {I}^^d0^^92^^d0^^aa^^d0^^92^^d0^^95^^d0^^94^^d0^^95^^d0^^9d^^d0^^98^^d0^^95}{2}{section.1}%
+\contentsline {section}{\numberline {II}^^d0^^a2^^d0^^95^^d0^^9e^^d0^^a0^^d0^^95^^d0^^a2^^d0^^98^^d0^^a7^^d0^^9d^^d0^^90 ^^d0^^98 ^^d0^^a2^^d0^^95^^d0^^a5^^d0^^9d^^d0^^9e^^d0^^9b^^d0^^9e^^d0^^93^^d0^^98^^d0^^a7^^d0^^9d^^d0^^90 ^^d0^^9e^^d0^^91^^d0^^9e^^d0^^a1^^d0^^9d^^d0^^9e^^d0^^92^^d0^^9a^^d0^^90}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}^^d0^^9d^^d0^^b5^^d1^^80^^d0^^b5^^d0^^bb^^d0^^b0^^d1^^86^^d0^^b8^^d0^^be^^d0^^bd^^d0^^bd^^d0^^b8 ^^d0^^b1^^d0^^b0^^d0^^b7^^d0^^b8 ^^d0^^b4^^d0^^b0^^d0^^bd^^d0^^bd^^d0^^b8}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}^^d0^^94^^d0^^be^^d0^^ba^^d1^^83^^d0^^bc^^d0^^b5^^d0^^bd^^d1^^82^^d0^^be-^^d0^^be^^d1^^80^^d0^^b8^^d0^^b5^^d0^^bd^^d1^^82^^d0^^b8^^d1^^80^^d0^^b0^^d0^^bd ^^d0^^bc^^d0^^be^^d0^^b4^^d0^^b5^^d0^^bb ^^d0^^bd^^d0^^b0 ^^d0^^b4^^d0^^b0^^d0^^bd^^d0^^bd^^d0^^b8}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}MongoDB - ^^d0^^b8^^d0^^b7^^d0^^b1^^d1^^80^^d0^^b0^^d0^^bd^^d0^^b0 ^^d1^^82^^d0^^b5^^d1^^85^^d0^^bd^^d0^^be^^d0^^bb^^d0^^be^^d0^^b3^^d0^^b8^^d1^^8f}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}^^d0^^98^^d0^^b7^^d0^^bf^^d0^^be^^d0^^bb^^d0^^b7^^d0^^b2^^d0^^b0^^d0^^bd^^d0^^b8 ^^d1^^82^^d0^^b5^^d1^^85^^d0^^bd^^d0^^be^^d0^^bb^^d0^^be^^d0^^b3^^d0^^b8^^d0^^b8}{6}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Node.js ^^d0^^b8 Express.js}{6}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}^^d0^^94^^d0^^be^^d0^^bf^^d1^^8a^^d0^^bb^^d0^^bd^^d0^^b8^^d1^^82^^d0^^b5^^d0^^bb^^d0^^bd^^d0^^b8 ^^d1^^82^^d0^^b5^^d1^^85^^d0^^bd^^d0^^be^^d0^^bb^^d0^^be^^d0^^b3^^d0^^b8^^d0^^b8}{6}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}^^d0^^9e^^d0^^b1^^d0^^be^^d1^^81^^d0^^bd^^d0^^be^^d0^^b2^^d0^^ba^^d0^^b0 ^^d0^^bd^^d0^^b0 ^^d1^^82^^d0^^b5^^d1^^85^^d0^^bd^^d0^^be^^d0^^bb^^d0^^be^^d0^^b3^^d0^^b8^^d1^^87^^d0^^bd^^d0^^b8^^d1^^8f ^^d1^^81^^d1^^82^^d0^^b5^^d0^^ba}{6}{subsection.2.5}%
+\contentsline {section}{\numberline {III}^^d0^^90^^d0^^a0^^d0^^a5^^d0^^98^^d0^^a2^^d0^^95^^d0^^9a^^d0^^a2^^d0^^a3^^d0^^a0^^d0^^90 ^^d0^^98 ^^d0^^a0^^d0^^95^^d0^^90^^d0^^9b^^d0^^98^^d0^^97^^d0^^90^^d0^^a6^^d0^^98^^d0^^af}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}^^d0^^a1^^d1^^82^^d1^^80^^d1^^83^^d0^^ba^^d1^^82^^d1^^83^^d1^^80^^d0^^b0 ^^d0^^bd^^d0^^b0 ^^d0^^b4^^d0^^b0^^d0^^bd^^d0^^bd^^d0^^b8^^d1^^82^^d0^^b5}{8}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}^^d0^^9a^^d0^^be^^d0^^bb^^d0^^b5^^d0^^ba^^d1^^86^^d0^^b8^^d1^^8f users}{8}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}^^d0^^9a^^d0^^be^^d0^^bb^^d0^^b5^^d0^^ba^^d1^^86^^d0^^b8^^d1^^8f courses}{8}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}^^d0^^9a^^d0^^be^^d0^^bb^^d0^^b5^^d0^^ba^^d1^^86^^d0^^b8^^d1^^8f progress}{9}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}^^d0^^98^^d0^^b7^^d0^^bf^^d1^^8a^^d0^^bb^^d0^^bd^^d1^^8f^^d0^^b2^^d0^^b0^^d0^^bd^^d0^^b8 ^^d0^^be^^d0^^bf^^d0^^b5^^d1^^80^^d0^^b0^^d1^^86^^d0^^b8^^d0^^b8}{10}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}^^d0^^a3^^d0^^bf^^d1^^80^^d0^^b0^^d0^^b2^^d0^^bb^^d0^^b5^^d0^^bd^^d0^^b8^^d0^^b5 ^^d0^^bd^^d0^^b0 ^^d0^^b4^^d0^^be^^d1^^81^^d1^^82^^d1^^8a^^d0^^bf^^d0^^b0 (RBAC)}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}CRUD ^^d0^^be^^d0^^bf^^d0^^b5^^d1^^80^^d0^^b0^^d1^^86^^d0^^b8^^d0^^b8}{11}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}^^d0^^90^^d0^^b3^^d1^^80^^d0^^b5^^d0^^b3^^d0^^b8^^d1^^80^^d0^^b0^^d1^^89^^d0^^b8 ^^d0^^be^^d0^^bf^^d0^^b5^^d1^^80^^d0^^b0^^d1^^86^^d0^^b8^^d0^^b8}{13}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}^^d0^^a2^^d0^^b5^^d1^^81^^d1^^82^^d0^^b2^^d0^^b0^^d0^^bd^^d0^^b5 ^^d0^^b8 ^^d0^^be^^d0^^b1^^d1^^80^^d0^^b0^^d0^^b1^^d0^^be^^d1^^82^^d0^^ba^^d0^^b0 ^^d0^^bd^^d0^^b0 ^^d0^^b3^^d1^^80^^d0^^b5^^d1^^88^^d0^^ba^^d0^^b8}{14}{subsection.3.3}%
+\contentsline {section}{\numberline {IV}^^d0^^97^^d0^^90^^d0^^9a^^d0^^9b^^d0^^ae^^d0^^a7^^d0^^95^^d0^^9d^^d0^^98^^d0^^95}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}^^d0^^9e^^d0^^b1^^d0^^be^^d0^^b1^^d1^^89^^d0^^b5^^d0^^bd^^d0^^b8^^d0^^b5 ^^d0^^bd^^d0^^b0 ^^d0^^bf^^d1^^80^^d0^^be^^d0^^b5^^d0^^ba^^d1^^82^^d0^^b0}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}^^d0^^9e^^d1^^81^^d0^^bd^^d0^^be^^d0^^b2^^d0^^bd^^d0^^b8 ^^d0^^b8^^d0^^b7^^d0^^b2^^d0^^be^^d0^^b4^^d0^^b8}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}^^d0^^9f^^d0^^be^^d1^^81^^d1^^82^^d0^^b8^^d0^^b3^^d0^^bd^^d0^^b0^^d1^^82^^d0^^b8 ^^d1^^80^^d0^^b5^^d0^^b7^^d1^^83^^d0^^bb^^d1^^82^^d0^^b0^^d1^^82^^d0^^b8}{17}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}^^d0^^9f^^d1^^80^^d0^^b5^^d0^^b4^^d0^^b8^^d0^^bc^^d1^^81^^d1^^82^^d0^^b2^^d0^^b0 ^^d0^^bd^^d0^^b0 ^^d0^^bd^^d0^^b5^^d1^^80^^d0^^b5^^d0^^bb^^d0^^b0^^d1^^86^^d0^^b8^^d0^^be^^d0^^bd^^d0^^bd^^d0^^b8^^d1^^8f ^^d0^^bf^^d0^^be^^d0^^b4^^d1^^85^^d0^^be^^d0^^b4}{18}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}^^d0^^9f^^d1^^80^^d0^^b5^^d0^^b4^^d0^^b8^^d0^^b7^^d0^^b2^^d0^^b8^^d0^^ba^^d0^^b0^^d1^^82^^d0^^b5^^d0^^bb^^d1^^81^^d1^^82^^d0^^b2^^d0^^b0 ^^d0^^b8 ^^d1^^80^^d0^^b5^^d1^^88^^d0^^b5^^d0^^bd^^d0^^b8^^d1^^8f}{19}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}^^d0^^9f^^d1^^80^^d0^^b5^^d0^^bf^^d0^^be^^d1^^80^^d1^^8a^^d0^^ba^^d0^^b8 ^^d0^^b7^^d0^^b0 ^^d0^^b1^^d1^^8a^^d0^^b4^^d0^^b5^^d1^^89^^d0^^be ^^d1^^80^^d0^^b0^^d0^^b7^^d0^^b2^^d0^^b8^^d1^^82^^d0^^b8^^d0^^b5}{19}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}^^d0^^97^^d0^^b0^^d0^^ba^^d0^^bb^^d1^^8e^^d1^^87^^d0^^b8^^d1^^82^^d0^^b5^^d0^^bb^^d0^^bd^^d0^^b8 ^^d0^^bc^^d0^^b8^^d1^^81^^d0^^bb^^d0^^b8}{20}{subsection.4.7}%
+\contentsline {section}{\numberline {V}^^d0^^a2^^d0^^b5^^d1^^81^^d1^^82^^d0^^b2^^d0^^b0^^d0^^bd^^d0^^b5 ^^d0^^b8 ^^d1^^80^^d0^^b5^^d0^^b7^^d1^^83^^d0^^bb^^d1^^82^^d0^^b0^^d1^^82^^d0^^b8}{21}{section.5}%

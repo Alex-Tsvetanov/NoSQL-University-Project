@@ -87,6 +87,11 @@
 \renewcommand{\cftsubsecaftersnum}{.}
 \renewcommand{\cftsubsubsecaftersnum}{.}
 
+% --- Fix Abstract Font Size ---
+\patchcmd{\abstract}{\small}{\normalsize}{}{}
+\patchcmd{\abstract}{\quotation}{\justifying}{}{}
+\patchcmd{\endabstract}{\endquotation}{}{}{}
+
 % --- Captions (Tables & Figures) ---
 \usepackage{caption}
 \DeclareCaptionLabelFormat{tablelabel}{Таблица #2}

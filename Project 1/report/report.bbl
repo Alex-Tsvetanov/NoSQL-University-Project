@@ -42,11 +42,6 @@ K.~Banker, P.~Bakkum, S.~Verch, D.~Garrett, and D.~Hows, {\em MongoDB in
 {JSON Schema Org}, ``Json schema validation specification,'' 2024.
 \newblock Accessed: 2024-02-13.
 
-\bibitem{rbac_education}
-R.~Williams and S.~Thompson, ``Role-based access control in educational
-  platforms,'' {\em Journal of Information Security}, vol.~8, no.~2,
-  pp.~78--92, 2021.
-
 \bibitem{mongodb_definitive}
 S.~Bradshaw, E.~Brazil, and K.~Chodorow, {\em MongoDB: The Definitive Guide}.
 \newblock O'Reilly Media, 3rd~ed., 2019.

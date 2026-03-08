@@ -1,0 +1,39 @@
+\section{Тестване и резултати}
+
+За проверка на коректността на разработената система са реализирани автоматизирани тестове с рамката Jest. Тестовете покриват следните основни аспекти:
+\begin{itemize}
+    \item Свързване с базата данни и управление на сесиите.
+    \item Коректност на записването на начални данни (seeding).
+    \item Валидация на бизнес логиката при релациите между пратки и телеметрични данни.
+    \item Управление на достъпа чрез роли (RBAC) и проверка на правата.
+\end{itemize}
+
+По-долу е представен логът от изпълнението на тестовете, който потвърждава, че всички 17 теста преминават успешно:
+
+\begin{lstlisting}[language=bash, caption={Лог от изпълнение на автоматизирани тестове}, label={lst:test_logs}]
+> nosql-fleet-tracking@1.0.0 test
+> jest
+
+PASS tests/accessControl.test.js
+  ● Console
+    [AccessControl Error] User with role 'DataAnalyst' denied insert on vehicles.
+    [AccessControl Error] User with role 'FleetManager' denied insert on telemetry.
+    [AccessControl Error] User with role 'LogisticsApp' denied find on vehicles.
+
+PASS tests/shipmentTelemetryRelation.test.js
+  ● Console
+    [Error Logged] Invalid request: Shipment S999 missing start or end time
+    [Error Logged] Invalid request: start_time cannot be after end_time for Shipment S999
+
+PASS tests/seedData.test.js
+PASS tests/database.test.js
+  ● Console
+    Connected successfully to MongoDB
+    Connection closed
+
+Test Suites: 4 passed, 4 total
+Tests:       17 passed, 17 total
+Snapshots:   0 total
+Time:        0.795 s
+Ran all test suites.
+\end{lstlisting}

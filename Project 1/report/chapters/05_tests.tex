@@ -1,0 +1,53 @@
+\section{Тестване и резултати}
+
+За проверка на коректността на разработената система за персонализирано обучение са реализирани автоматизирани тестове с рамката Jest. Тестовете покриват следните основни аспекти:
+\begin{itemize}
+    \item Свързване с базата данни и правилно инициализиране на сесиите.
+    \item Пълна проверка на CRUD операциите за всички основни колекции: Потребители (Users), Курсове (Courses) и Прогрес (Progress).
+    \item Проверка на агрегиращите заявки за генериране на аналитични отчети (Топ студенти, статистики за записвания).
+    \item Валидация на обработката на грешки (невалидни идентификатори, несъществуващи пътища).
+\end{itemize}
+
+По-долу е представен логът от изпълнението на тестовете, който потвърждава, че всички 22 теста преминават успешно:
+
+\begin{lstlisting}[language=bash, caption={Лог от изпълнение на автоматизирани тестове - Проект 1}, label={lst:test_logs_p1}]
+> project-1@1.0.0 test
+> jest
+
+PASS tests/test-api.js
+  EdTech Analytics API Tests
+    Health Check
+      + GET /health should return OK status
+    Users CRUD
+      + POST /users should create a new user
+      + GET /users should return users
+      + GET /users with filters should work
+      + PUT /users/:id should update a user
+      + DELETE /users/:id should delete a user
+    Courses CRUD
+      + POST /courses should create a new course
+      + GET /courses should return courses
+      + GET /courses with price filter should work
+      + PUT /courses/:id should update a course
+      + DELETE /courses/:id should delete a course
+    Progress CRUD
+      + POST /progress should create a new progress record
+      + GET /progress should return progress records
+      + GET /progress with status filter should work
+      + PUT /progress/:id should update a progress record
+      + DELETE /progress/:id should delete a progress record
+    Analytics Endpoints
+      + GET /analytics/top-active-students should return analytics data
+      + GET /analytics/students-completed-by-alternative should return data
+      + GET /analytics/course-enrollment-stats should return enrollment statistics
+    Error Handling
+      + GET /nonexistent should return 404
+      + PUT /users/invalid-id should return 500
+      + DELETE /users/nonexistent-id should return 404
+
+Test Suites: 1 passed, 1 total
+Tests:       22 passed, 22 total
+Snapshots:   0 total
+Time:        0.509 s
+Ran all test suites.
+\end{lstlisting}
