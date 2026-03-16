@@ -168,13 +168,18 @@ db.maintenance.aggregate([
 
 \begin{lstlisting}[language=bash,caption=Логове от отхвърлени заявки и неоторизиран достъп]
 [Error Logged] Invalid request: Shipment S999 missing start or end time
-[Error Logged] Invalid request: start_time cannot be after end_time for Shipment S999
+[Error Logged] Invalid request: start_time cannot be after end_time for
+Shipment S999
 [AccessControl Error] User with role 'DataAnalyst' denied insert on vehicles.
-  -> MongoServerError: not authorized on fleetTracking to execute command { insert: "vehicles" }
-[AccessControl Error] User with role 'FleetManager' denied insert on telemetry.
-  -> MongoServerError: not authorized on fleetTracking to execute command { insert: "telemetry" }
+  -> MongoServerError: not authorized on fleetTracking to execute command
+  { insert: "vehicles" }
+[AccessControl Error] User with role 'FleetManager' denied insert on 
+  telemetry. -> MongoServerError: not authorized on fleetTracking to execute
+  command 
+  { insert: "telemetry" }
 [AccessControl Error] User with role 'LogisticsApp' denied find on vehicles.
-  -> MongoServerError: not authorized on fleetTracking to execute command { find: "vehicles" }
+  -> MongoServerError: not authorized on fleetTracking to execute command 
+  { find: "vehicles" }
 \end{lstlisting}
 
 Архитектурата на системата осигурява ефективно управление на IoT данни с висока степен на гъвкавост и производителност, като същевременно поддържа целостта и консистентността на информацията \cite{martin2017clean}.

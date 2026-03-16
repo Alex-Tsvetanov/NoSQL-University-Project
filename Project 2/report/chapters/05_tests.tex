@@ -16,14 +16,18 @@
 
 PASS tests/accessControl.test.js
   ● Console
-    [AccessControl Error] User with role 'DataAnalyst' denied insert on vehicles.
-    [AccessControl Error] User with role 'FleetManager' denied insert on telemetry.
-    [AccessControl Error] User with role 'LogisticsApp' denied find on vehicles.
+    [AccessControl Error] User with role 'DataAnalyst' denied insert
+    on vehicles.
+    [AccessControl Error] User with role 'FleetManager' denied insert
+    on telemetry.
+    [AccessControl Error] User with role 'LogisticsApp' denied find
+    on vehicles.
 
 PASS tests/shipmentTelemetryRelation.test.js
   ● Console
     [Error Logged] Invalid request: Shipment S999 missing start or end time
-    [Error Logged] Invalid request: start_time cannot be after end_time for Shipment S999
+    [Error Logged] Invalid request: start_time cannot be after end_time for 
+    Shipment S999
 
 PASS tests/seedData.test.js
 PASS tests/database.test.js
